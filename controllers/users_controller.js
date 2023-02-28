@@ -1,9 +1,26 @@
 const User = require('../models/user');
 
 module.exports.profile = function(req, res){
-    return res.render('user_profile',{
-        title: "user_profile",
-    });
+    if(req.cookies.user_id){
+        User.findById(req.cookies.user_id)
+        .then((user) =>{
+            if(user){
+                return res.render('user_profile',{
+                    title: "user_profile",
+                    user: user
+                });
+            }else{
+                return res.redirect('/users/sign-in');
+            }
+        })
+        .catch((err) =>{
+            console.log("Error:", err);
+            return res.redirect('back');
+        });
+
+    }else{
+        return res.redirect('/users/sign-in');
+    }    
 }
 
 // render sing uo page
@@ -15,9 +32,14 @@ module.exports.signUp = function(req, res){
 
 // render sing in page
 module.exports.signIn = function(req, res){
-    return res.render('user_sign_in',{
-        title: "Codeal | Sing in"
-    });
+    if(req.cookies.user_id)
+    {
+        return res.redirect('/users/profile')
+    }else{
+        return res.render('user_sign_in',{
+            title: "Codeal | Sing in"
+        });
+    }
 }
 
 // get  the sing up data
@@ -68,9 +90,5 @@ module.exports.createSession = function(req,res){
         console.log('Error:', err);
         return res.redirect('back');
     });
-    
-    
-
-
     
 } 
