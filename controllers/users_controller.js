@@ -41,10 +41,36 @@ module.exports.create = function(req,res){
         return res.redirect('back');
     });
 
-    
 }
  
 // sign in and create a session for the user
 module.exports.createSession = function(req,res){
-    // todo later
+    // steps to authenticate
+    // find the user 
+    User.findOne({email: req.body.email})
+    .then((user) =>{
+        // handle user found
+        if(user){
+            // handle password which don't match
+            if(user.password != req.body.password)
+            {
+                return res.redirect('back');
+            }
+            // handle session creation
+            res.cookie('user_id', user.id);
+            return res.redirect('/users/profile');
+        }else{
+            // handle user not found
+            return res.redirect('back');
+        }
+    })
+    .catch((err) =>{
+        console.log('Error:', err);
+        return res.redirect('back');
+    });
+    
+    
+
+
+    
 } 
