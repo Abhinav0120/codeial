@@ -92,3 +92,11 @@ module.exports.createSession = function(req,res){
     });
     
 } 
+
+// sing-out
+
+module.exports.signOut = function(req,res){
+    // res.clearCookie('user_id'); // removes cookie from response header
+    res.cookie('user_id', '', { expires: new Date(0) }); // completely removes cokie from the browser
+    res.redirect('/users/sign-in');
+}
