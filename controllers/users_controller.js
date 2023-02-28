@@ -17,3 +17,13 @@ module.exports.signIn = function(req, res){
         title: "Codeal | Sing in"
     });
 }
+
+// get  the sing up data
+module.exports.create = function(req,res){
+    // ToDo later
+}
+ 
+// sign in and create a session for the user
+module.exports.createSession = function(req,res){
+    // todo later
+} 
