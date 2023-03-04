@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif; }
+  body header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #00a2ff; }
+    body header #part1 {
+      color: white; }
+      body header #part1 h1 {
+        margin: 0;
+        padding: 0; }
+    body header #part2 {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      min-width: 15%; }
+      body header #part2 li {
+        list-style: none;
+        display: flex;
+        align-items: center; }
+        body header #part2 li a {
+          text-decoration: none;
+          font-size: 20px;
+          color: white; }
