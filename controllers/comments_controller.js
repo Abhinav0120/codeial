@@ -24,3 +24,27 @@ module.exports.create = function(req, res){
         return res.redirect('back');
     });
 }
+
+module.exports.destroy = function(req, res){
+    Comment.findById(req.params.id)
+    .populate('post')
+    .then(comment =>{
+        if(comment.user == req.user.id || comment.post.user == req.user.id){
+            let postId = comment.post._id;
+
+            comment.deleteOne();
+
+            Post.findByIdAndUpdate(postId, {$pull: {comments: req.params.id}})
+            .then(post =>{
+                return res.redirect('back');
+            })
+        }else{
+            console.log('User is not Allowed to delete this comment');
+            return res.redirect('back');
+        }
+    })
+    .catch(err =>{
+        console.log('Error Finding comment:', err);
+        return res.redirect('back');
+    });
+}

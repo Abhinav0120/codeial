@@ -27,7 +27,7 @@ module.exports.destroy = function(req, res){
             return post.deleteOne().then(() => {
                 return Comment.deleteMany({post: req.params.id});
             }).then(() => {
-                return res.redirect('back');
+                return res.redirect('back'); 
             }).catch(err =>{
                 console.log('Error in deleting comments:', err);
                 return res.redirect('back');
