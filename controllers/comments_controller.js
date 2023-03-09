@@ -22,18 +22,5 @@ module.exports.create = function(req, res){
     .catch(err =>{
         console.log('Error in finding post:', err);
         return res.redirect('back');
-    })
+    });
 }
-
-// , function(err, comment){
-//     if(err){
-//         console.log('Error in creating comment:', err)
-//         return res.redirect('back');
-
-//     }
-
-//     post.comments.push(comment);
-//     post.save();
-
-//     res.redirect('/');
-// }
