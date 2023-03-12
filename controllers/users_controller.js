@@ -26,7 +26,7 @@ module.exports.update = function(req, res){
     }
 }
 
-// render sing uo page
+// render sing up page
 module.exports.signUp = function(req, res){
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');

@@ -6,19 +6,20 @@ const User = require('../models/user');
 
 // authentication using passport
 passport.use(new LocalStrategy ({
-        usernameField: 'email'
+        usernameField: 'email',
+        passReqToCallback: true
     },
-    function(email, password, done){
+    function(req, email, password, done){
         
         User.findOne({email: email})
         .then((user) =>{
             if(!user || user.password != password){
-                console.log('invalid Username/Password');
+                req.flash('error', 'Invalid Username/Password');
                 return done(null, false);
             }
             return done(null, user);
         }).catch((err) => {
-            console.log('Error in finding user --> Passport');
+            req.flash('error', err);
             return done(err);
         });
     }
@@ -36,7 +37,7 @@ passport.serializeUser(function(user, done){
     .then((user) => {
         return done(null, user);
     }).catch((err) =>{
-        console.log('Error in finding -- Passport');
+        console.log('Error in finding user ---> Passport');
         return done(err);
     });
  });

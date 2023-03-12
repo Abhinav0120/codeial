@@ -10,10 +10,12 @@ module.exports.create = async function(req, res){
             content: req.body.content,
             user: req.user._id
         });
+
+        req.flash('success', 'Post published! ');
         return res.redirect('back');
     }
     catch(err) {
-        console.log('error in creating a post:', err);
+        req.flash('err', err);
         return res.redirect('back');
     }
 }
@@ -26,13 +28,16 @@ module.exports.destroy = async function(req, res){
             // here remove() method is not working but deleteOne() works
             post.deleteOne();
             await Comment.deleteMany({post: req.params.id});
+
+            req.flash('success', 'Post and asoociated comments deleted!');
             return res.redirect('back'); 
         }else{
+            req.flash('err', 'You can not delete this post!');
             return res.redirect('back');
         }
     }
     catch(err){ 
-        console.log('Error:', err);
+        req.flash('err', err);
         return res.redirect('back');
     }
 }
