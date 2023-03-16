@@ -2,7 +2,7 @@
     // method to submit the form data for new post using AJAX
     let createPost = function(){
         let newPostForm = $('#new-post-form');
-
+        
         newPostForm.submit(function(e){
             e.preventDefault();
 
@@ -66,12 +66,25 @@
                 url: $(deleteLink).prop('href'),
                 success: function(data){
                     $(`#post-${data.data.post_id}`).remove();
+                    new Noty({
+                        type: 'success',
+                        text: 'Post Deleted',
+                        timeout: 3000 // set the duration for how long the message will be displayed
+                    }).show();
                 },error: function(error){
                     console.log(error.responseText);
                 }
             });
         })
     }
+
+    let applyDeletePost = function(){
+        $('.delete-post-button').each(function(){
+            deletePost($(this));
+        });
+    }
+    
+    applyDeletePost();
 
     createPost();
 }
