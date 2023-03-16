@@ -38,6 +38,10 @@ module.exports.home = async function(req, res){
             }
         });
 
+        posts.forEach(post => {
+            post.comments.sort((a, b) => b.createdAt - a.createdAt);
+        });
+
         let users = await User.find({});
 
         return res.render('home',{
