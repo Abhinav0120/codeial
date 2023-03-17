@@ -45,8 +45,17 @@ module.exports.destroy = async function(req, res){
             comment.deleteOne();
 
             let post = await Post.findByIdAndUpdate(postId, {$pull: {comments: req.params.id}});
-            req.flash('success', 'Comment deleted Successfully!');
+            
+            if(req.xhr){
+                return res.status(200).json({
+                    data:{
+                        comment_id: req.params.id
+                    },
+                    message: "Comment deleted"
+                })
+            }
 
+            req.flash('success', 'Comment deleted Successfully!');
             return res.redirect('back');
         }else{
             req.flash('error', 'You are not allowed to delete this comment!');

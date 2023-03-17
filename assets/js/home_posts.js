@@ -14,6 +14,8 @@
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost); 
                     deletePost($(' .delete-post-button', newPost));
+                    // Used createComment ufnction from post_comments.js because the createComment was not working for new Post
+                    Post_Comments.createComment($(' .new-comment-forms', newPost));
                     new Noty({
                         type: 'success',
                         text: 'Post created successfully',
@@ -41,7 +43,7 @@
                         </small> 
                     </p>
                     <div class="post-comments">
-                        <form action="/comments/create" method="POST">
+                        <form action="/comments/create" class="new-comment-forms" method="POST">
                             <input type="text" name="content" placeholder="Type here to add comments" required>
                             <input type="hidden" name="post" value="${post._id}">
                             <input type="submit" value="Add Comment">
@@ -87,4 +89,5 @@
     applyDeletePost();
 
     createPost();
+
 }
