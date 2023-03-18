@@ -15,6 +15,8 @@ module.exports.create = async function(req, res){
             post.save();
             
             if(req.xhr){
+
+                comment = await comment.populate('user', 'name');
                 return res.status(200).json({
                     data: {
                         comment: comment
@@ -23,7 +25,6 @@ module.exports.create = async function(req, res){
                 })
             }
     
-
             req.flash('success', 'Commented on the post!');
             res.redirect('/');
         }
@@ -52,7 +53,7 @@ module.exports.destroy = async function(req, res){
                         comment_id: req.params.id
                     },
                     message: "Comment deleted"
-                })
+                });
             }
 
             req.flash('success', 'Comment deleted Successfully!');

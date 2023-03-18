@@ -1,6 +1,6 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-const mongoose = require('mongoose');
+
 
 // converted code to async await 
 module.exports.create = async function(req, res){
@@ -12,12 +12,15 @@ module.exports.create = async function(req, res){
         });
 
         if(req.xhr){
+            
+            // post = await post.populate('user', 'name').execPopulate(); is not working
+            post = await post.populate('user', 'name');
             return res.status(200).json({
                 data: {
                     post: post
                 },
                 message: "Post created!"
-            })
+            });
         }
 
         req.flash('success', 'Post published! ');
