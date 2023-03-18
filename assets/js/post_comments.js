@@ -14,6 +14,7 @@ var Post_Comments = (function(){
                     url: '/comments/create',
                     data: $(element).serialize(),
                     success: function(data){
+                        console.log(data);
                         let newComment = newCommentDom(data.data.comment);
                         $(`#post-comments-${data.data.comment.post}`).prepend(newComment); 
                         deleteComment($(' .delete-comment-button', newComment));
