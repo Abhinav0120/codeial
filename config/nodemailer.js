@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer");
 const ejs = require('ejs');
 const path = require('path');
+const { error } = require("console");
 
 
 let transporter = nodemailer.createTransport({
@@ -9,8 +10,8 @@ let transporter = nodemailer.createTransport({
     port: '587',
     secure: 'false',
     auth: {
-        user: '',   //Enter your email Id
-        pass: ''    //Enter your email Id's password here
+        user: '', //Add your Email Id
+        pass: '' //Add your Email Id's password
     }
 });
 
@@ -20,7 +21,7 @@ let renderTemplate = (data, relativePath) =>{
         path.join(__dirname, '../views/mailers', relativePath),
         data,
         function(err, template){
-            if(err){console.log('error in rendering template'); return}
+            if(err){console.log('error in rendering template', err); return}
             mailHTML = template;
         }
     )
