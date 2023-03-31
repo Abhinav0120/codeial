@@ -33,10 +33,16 @@ module.exports.home = async function(req, res){
         .populate('user')
         .populate({
             path: 'comments',
-            populate: {
-                path: 'user'
-            }
-        });
+            populate: [
+                {
+                    path: 'user',
+                },
+                {
+                    path: 'likes'
+                }
+            ]
+        })
+        .populate('likes');
 
         posts.forEach(post => {
             post.comments.sort((a, b) => b.createdAt - a.createdAt);

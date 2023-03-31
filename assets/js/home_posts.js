@@ -14,8 +14,13 @@
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost); 
                     deletePost($(' .delete-post-button', newPost));
-                    // Used createComment ufnction from post_comments.js because the createComment was not working for new Post
+
+                    // Used createComment function from post_comments.js because the createComment was not working for new Post
                     Post_Comments.createComment($(' .new-comment-forms', newPost));
+
+                    // enable the functionality of toggle like on new post 
+                    new ToggleLike($(' .toggle-like-button', newPost));
+
                     new Noty({
                         type: 'success',
                         text: 'Post created successfully',
@@ -40,7 +45,13 @@
                         <br>
                         <small>
                             ${post.user.name}
-                        </small> 
+                        </small>
+                        <br>
+                        <small>
+                            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
+                                0 Likes
+                            </a>
+                        </small>
                     </p>
                     <div class="post-comments">
                         <form action="/comments/create" class="new-comment-forms" method="POST">

@@ -1,5 +1,6 @@
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const Like = require('../models/like');
 
 
 // converted code to async await 
@@ -37,6 +38,10 @@ module.exports.destroy = async function(req, res){
         let post = await Post.findById(req.params.id);
         //.id means converting the objects _id into string
         if(post.user == req.user.id){
+
+            await Like.deleteMany({likeable: post, noModel: 'Post'});
+            await Like.deleteMany({_id: {$in: post.comments}});
+
             // here remove() method is not working but deleteOne() works
             post.deleteOne();
             await Comment.deleteMany({post: req.params.id});
