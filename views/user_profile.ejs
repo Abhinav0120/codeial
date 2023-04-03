@@ -1,6 +1,6 @@
     <link rel="stylesheet" href="/css/user_profile.css">
 
-    <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+    <img src="<%= profile_user.avatar %>" alt="<%= user.name %>" width="100">
     
     <% if(user.id == profile_user.id){ %>
         <!-- If User Matches then show the form -->
@@ -12,10 +12,21 @@
             <input type="submit" value="Update">
 
         </form>
-
+ 
     <% }else{ %>
         <!-- else show only the profile info -->
         <p><%= profile_user.name%></p>
         <p><%= profile_user.email%></p>
+        <% if(isFriend){ %>
+            <a id="toggle-friends-button" data-friend="" href="friendships/toggle/<%= profile_user.id %>"> Remove Friend </a>
+        <% }else{ %>
+            <a id="toggle-friends-button" data-friend="" href="friendships/toggle/<%= profile_user.id %>"> Add Friend </a>
+        <% } %>
 
     <% } %>
+
+    <script src="/js/toggle_friendships.js"></script>
+    <script>
+        let toggle = $('#toggle-friends-button');
+        let toggleFriendships = new ToggleFriendship(toggle);
+    </script>

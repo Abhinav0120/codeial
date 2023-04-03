@@ -1,16 +1,24 @@
 const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
+const Friendship = require('../models/user');
 
 module.exports.profile = function(req, res){
     User.findById(req.params.id)
+    .populate('friendships')
     .then(user =>{
+        let isFriend = false;
+        if(req.user){
+            const friendIds = user.friendships.map(f => f.to_user._id.equals(user._id) ? f.from_user : f.to_user);
+            isFriend = friendIds.some(friendId => friendId.equals(req.user._id));
+        }
         return res.render('user_profile',{
-            title: "user_profile",
-            profile_user: user
+            title: "user_profile",  
+            profile_user: user,
+            isFriend: isFriend
         });
     }).catch(err =>{
-        console.log(err);x
+        console.log(err);
     });
     
 }

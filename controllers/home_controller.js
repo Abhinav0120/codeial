@@ -1,27 +1,6 @@
 const Post = require('../models/post');
 const User = require('../models/user');
-
-// module.exports.home = function(req, res){
-//     Post.find({})
-//     .populate('user')
-//     .populate({
-//         path: 'comments',
-//         populate: {
-//             path: 'user'
-//         }
-//     })
-//     .exec()
-//     .then((posts) =>{
-//         User.find({})
-//         .then(users =>{
-//             return res.render('home',{
-//                 title: "Codeial | Home",
-//                 posts: posts,
-//                 all_users: users
-//             });
-//         });
-//     });
-// }
+const Friendship = require('../models/friendship');
 
 // using async and await
 module.exports.home = async function(req, res){
@@ -50,11 +29,40 @@ module.exports.home = async function(req, res){
 
         let users = await User.find({});
 
-        return res.render('home',{
-            title: "Codeial | Home",
-            posts: posts,
-            all_users: users
-        });
+        if(req.user){
+            const currentUser = await User.findById(req.user.id).populate({
+                path:'friendships',
+                populate:{
+                    path: 'to_user from_user',
+                    select: 'name _id'
+                }
+            });
+            let friends = [];
+
+            if(currentUser.friendships){
+                friends = currentUser.friendships.map(friendship => {
+                    const friendUser = friendship.to_user._id.equals(currentUser._id) ? friendship.from_user : friendship.to_user;
+                    return friendUser;
+                });
+            }
+            
+            console.log(friends);
+            return res.render('home',{
+                title: "Codeial | Home",
+                posts: posts,
+                all_users: users,
+                all_friends: friends
+            });
+    
+        }else{
+            return res.render('home',{
+                title: "Codeial | Home",
+                posts: posts,
+                all_users: users,
+            });
+        }
+        
+
     }catch(err){
         console.log('Error',err);
         return;

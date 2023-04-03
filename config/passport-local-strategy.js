@@ -3,6 +3,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../models/user');
+const Friendship = require('../models/friendship');
 
 // authentication using passport
 passport.use(new LocalStrategy ({
@@ -57,10 +58,22 @@ passport.setAuthenticatedUser = function(req, res, next){
     if(req.isAuthenticated()){
         // req.user contains the current signed in user from the session cookie 
         // and we are just sending this to the locals for the view  
-        res.locals.user = req.user;
+        User.findById(req.user.id)
+        .populate('friendships')
+        .then(user => {
+            res.locals.user = user;
+            console.log('user:',res.locals.user);
+            next();
+        })
+        .catch(err => {
+            console.log('Error in populating user friendship:', err);
+            next(err);
+        });
+    }else{
+        next();
     }
 
-    next();
+    
 }
  
 module.export = passport;
