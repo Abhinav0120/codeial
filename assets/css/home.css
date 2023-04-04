@@ -3,8 +3,12 @@
   height: 100%; }
   #home-container #feed-posts {
     width: 70%;
-    padding: 10px; }
-  #home-container #user-friends {
+    padding: 10px;
+    overflow: auto; }
+  #home-container #all-users {
     width: 30%;
     padding: 10px;
-    border-left: 1px solid lightgray; }
+    border-left: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    overflow: auto; }

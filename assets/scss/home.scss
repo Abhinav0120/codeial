@@ -5,12 +5,25 @@
     #feed-posts{
         width:70%;
         padding: 10px;
+        overflow: auto;
     }
 
-    #user-friends{
+    #all-users{
         width: 30%;
         padding: 10px;
         border-left: 1px solid lightgray;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+
+        // #user-friends{
+        //     // height: 50vh;
+        // }
+
+        // #re-users{
+
+        // }
+
     }
 }
 
