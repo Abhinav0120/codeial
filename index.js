@@ -17,8 +17,13 @@ const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
 // setup the chat server and used with socket.io
+const cors = require('cors');
+const corsOptions = {
+    origin: 'http://localhost:8000'
+  };
+app.use(cors(corsOptions));
 const chatServer = require('http').Server(app);
-const chatSockets = require('./config/chat_sockets').chatSocket(chatServer);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('Chat server is listening Port 5000');
 

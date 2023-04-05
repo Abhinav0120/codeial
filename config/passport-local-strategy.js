@@ -62,7 +62,7 @@ passport.setAuthenticatedUser = function(req, res, next){
         .populate('friendships')
         .then(user => {
             res.locals.user = user;
-            console.log('user:',res.locals.user);
+            // console.log('user:',res.locals.user);
             next();
         })
         .catch(err => {
