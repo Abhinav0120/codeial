@@ -35,8 +35,8 @@ module.exports.toggleFriendship = async function(req, res){
                 to_user.save();
     
                 existingFriendship.deleteOne();
-                console.log("existingFriendship",existingFriendship);
-                console.log('User Friendships',from_user.friendships);
+                // console.log("existingFriendship",existingFriendship);
+                // console.log('User Friendships',from_user.friendships);
                 deleted = true;
             }else{
                 // else make a new friendship
@@ -50,8 +50,8 @@ module.exports.toggleFriendship = async function(req, res){
                 from_user.save();
                 to_user.friendships.push(newFriendship._id);
     
-                console.log("New Friendship",newFriendship);
-                console.log('User Friendships',from_user.friendships);
+                // console.log("New Friendship",newFriendship);
+                // console.log('User Friendships',from_user.friendships);
                 to_user.save();
             }
     
