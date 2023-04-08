@@ -1,0 +1,7 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  height: 100vh;
+  /* text-align: center; */ }
+  body #layout-main {
+    height: 80%; }
