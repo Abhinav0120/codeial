@@ -3,6 +3,9 @@ const env = require('./config/environment');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
+
+require('./config/view-helpres')(app);
+
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
@@ -78,17 +81,6 @@ app.use(session({
         console.log(err || 'connect mongodb setup ok');
     })
 }));
-
-// const sessionMiddleware = session({
-//     secret: 'my-secret',
-//     store: new MongoStore({
-//       mongooseConnection: db,
-//       collection: 'sessions'
-//     }),
-//     resave: false,
-//     saveUninitialized: false
-// });
-// app.use(sessionMiddleware);
 
 app.use(passport.initialize()); 
 app.use(passport.session());

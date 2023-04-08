@@ -30,7 +30,7 @@ const development = {
     google_client_secret: "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",
     google_call_back_url: "http://localhost:8000/users/auth/google/callback",
     jwt_secret: 'codeial',
-    morgon: {
+    morgan: {
         mode: 'dev',
         options: {stream: accessLogStream}
     }
@@ -63,6 +63,6 @@ const production = {
 
 }
 
-
+// module.exports = development;
 module.exports = eval(process.env.CODEIAL_ENVIRONMENT) == undefined ? development : eval(process.env.CODEIAL_ENVIRONMENT);
 // module.exports = eval(process.env.NODE_ENV) == undefined ? development : eval(process.env.NODE_ENV);
