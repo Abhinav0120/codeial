@@ -17,9 +17,9 @@ class ToggleFriendship{
             })
             .done(function(data){
                 if(data.data.deleted == true){
-                    $(self).html('Add Friend');
+                    $(self).html('<span>Add Friend</span>').removeClass('remove-friend').addClass('add-friend');
                 }else{
-                    $(self).html('Remove Friend');
+                    $(self).html('<span>Remove Friend</span>').removeClass('add-friend').addClass('remove-friend');
                 }
             })
             .fail(function(errData){

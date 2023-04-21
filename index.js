@@ -1,6 +1,8 @@
 const express = require('express');
 const env = require('./config/environment');
 const logger = require('morgan');
+const cors = require('cors');
+
 const cookieParser = require('cookie-parser');
 const app = express();
 
@@ -21,17 +23,21 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
+app.use(cors());
+
 // setup the chat server and used with socket.io
-const cors = require('cors');
-const corsOptions = {
-    origin: 'http://localhost:8000'
-  };
-app.use(cors(corsOptions));
+// const cors = require('cors');
+// const corsOptions = {
+//     origin: ['http://localhost:8000', 'http://localhost:4200']
+//   };
+// app.use(cors(corsOptions));
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('Chat server is listening Port 5000');
 const path = require('path');
+
+
 
 if(env.name == 'development'){
     app.use(sassMiddleware({

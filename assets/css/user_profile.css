@@ -1,2 +1,70 @@
 body {
   background-color: lightblue; }
+  body #layout-main {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    body #layout-main #profile {
+      height: 450px;
+      width: 30vw;
+      background-color: azure;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 25px; }
+      body #layout-main #profile #profile-image {
+        width: 150px;
+        border-radius: 50%; }
+      body #layout-main #profile #user-form {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 60%;
+        align-items: center; }
+        body #layout-main #profile #user-form input {
+          width: 90%;
+          font-size: 1.5rem;
+          border: 1px solid gray;
+          border-radius: 5px;
+          background: transparent;
+          margin-bottom: 20px; }
+        body #layout-main #profile #user-form #update-avatar {
+          display: flex;
+          flex-direction: column;
+          align-items: center; }
+          body #layout-main #profile #user-form #update-avatar label[for="avatar"] {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 20px;
+            width: 100%;
+            cursor: pointer;
+            padding: 10px 0px 10px 0px;
+            color: #27a7fc;
+            font-size: 16px;
+            transition: all 0.2s ease-in-out;
+            overflow: hidden; }
+        body #layout-main #profile #user-form #update-button {
+          background-color: #058bc9;
+          color: white;
+          width: 100px;
+          border: none;
+          border-radius: 15px;
+          height: 40px; }
+      body #layout-main #profile p {
+        font-size: 1.5rem;
+        margin: 10px; }
+      body #layout-main #profile #toggle-friends-button {
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        border-radius: 15px;
+        height: 40px;
+        padding: 5px;
+        display: flex;
+        align-items: center; }
+      body #layout-main #profile .add-friend {
+        background-color: #27a7fc; }
+      body #layout-main #profile .remove-friend {
+        background-color: brown; }

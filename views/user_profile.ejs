@@ -1,30 +1,43 @@
     <link rel="stylesheet" href="<%= assetPath('css/user_profile.css')%>">
+    <div id="profile">
+        <img id="profile-image" src="<%= profile_user.avatar %>" alt="<%= user.name %>" width="100">
+        
+        <% if(user.id == profile_user.id){ %>
+            <!-- If User Matches then show the form -->
+            <form id="user-form" action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
+                
+                <div id="update-avatar">
+                    <!-- <label for="avatar">Upload Profile Picture:</label>
+                    <input type="file" id="avatar" name="avatar"> -->
 
-    <img src="<%= profile_user.avatar %>" alt="<%= user.name %>" width="100">
+                    <label for="avatar">
+                        <span>Edit Profile</span> 
+                       <input type="file" id="avatar" name="avatar" style="visibility: hidden;"/>
+                   </label>
+                </div>
+
+                <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
+                <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
+                
+                <input id="update-button" type="submit" value="Update">
+
+            </form>
     
-    <% if(user.id == profile_user.id){ %>
-        <!-- If User Matches then show the form -->
-        <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
-            <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
-            <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
-            
-            <input type="file" name="avatar" placeholder="Profile Picture">
-            <input type="submit" value="Update">
-
-        </form>
- 
-    <% }else{ %>
-        <!-- else show only the profile info -->
-        <p><%= profile_user.name%></p>
-        <p><%= profile_user.email%></p>
-        <% if(isFriend){ %>
-            <a id="toggle-friends-button" data-friend="" href="friendships/toggle/<%= profile_user.id %>"> Remove Friend </a>
         <% }else{ %>
-            <a id="toggle-friends-button" data-friend="" href="friendships/toggle/<%= profile_user.id %>"> Add Friend </a>
+            <!-- else show only the profile info -->
+            <p><%= profile_user.name%></p>
+            <p><%= profile_user.email%></p>
+            <% if(isFriend){ %>
+                <a id="toggle-friends-button" class="remove-friend" data-friend="" href="friendships/toggle/<%= profile_user.id %>"> <span>Remove Friend</span>  </a>
+            <% }else{ %>
+                <a id="toggle-friends-button" class="add-friend" data-friend="" href="friendships/toggle/<%= profile_user.id %>"> <span>Add Friend</span> </a>
+            <% } %>
+
         <% } %>
 
-    <% } %>
-
+    </div>
+    
+    
     <script src="<%= assetPath('js/toggle_friendships.js') %>"></script>
     <script>
         let toggle = $('#toggle-friends-button');
