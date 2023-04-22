@@ -1,13 +1,13 @@
-#layout-main {
+body #layout-main {
   background-color: white; }
-  #layout-main #container {
+  body #layout-main #container {
     background-color: #eeeeee;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center; }
-    #layout-main #container #signUp-wrapper {
+    body #layout-main #container #signIn-wrapper {
       background-color: white;
       width: 370px;
       display: flex;
@@ -15,30 +15,30 @@
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(67, 67, 67, 0.5); }
-      #layout-main #container #signUp-wrapper #heading-wrapper {
+      body #layout-main #container #signIn-wrapper #heading-wrapper {
         display: flex;
         flex-direction: column;
         margin-bottom: 35px; }
-        #layout-main #container #signUp-wrapper #heading-wrapper #heading {
+        body #layout-main #container #signIn-wrapper #heading-wrapper #heading {
           font-size: 2.2rem;
           font-weight: 500;
           color: #113347;
           margin-bottom: 5px; }
-        #layout-main #container #signUp-wrapper #heading-wrapper #sub-heading {
+        body #layout-main #container #signIn-wrapper #heading-wrapper #sub-heading {
           color: #113347;
           opacity: 75%; }
-      #layout-main #container #signUp-wrapper #signUp-form {
+      body #layout-main #container #signIn-wrapper #signIn-form {
         display: flex;
         flex-direction: column; }
-        #layout-main #container #signUp-wrapper #signUp-form .form-input {
+        body #layout-main #container #signIn-wrapper #signIn-form .form-input {
           border: none;
           border-bottom: 1px solid #a7a7a7;
           font-size: 1.1rem;
           padding: 7px;
           margin-bottom: 10px; }
-        #layout-main #container #signUp-wrapper #signUp-form .form-input:focus-visible {
+        body #layout-main #container #signIn-wrapper #signIn-form .form-input:focus-visible {
           outline: none; }
-        #layout-main #container #signUp-wrapper #signUp-form #submit-button {
+        body #layout-main #container #signIn-wrapper #signIn-form #submit-button {
           background-color: #113347;
           color: white;
           padding: 15px;
@@ -46,14 +46,14 @@
           margin-top: 35px;
           border: none;
           border-radius: 30px; }
-      #layout-main #container #signUp-wrapper #google-signup-wrapper {
+      body #layout-main #container #signIn-wrapper #google-signIn-wrapper {
         text-align: center;
         border: 2px solid #113347;
         padding: 10px;
         border-radius: 30px; }
-        #layout-main #container #signUp-wrapper #google-signup-wrapper #google-logo {
+        body #layout-main #container #signIn-wrapper #google-signIn-wrapper #google-logo {
           width: 15px; }
-        #layout-main #container #signUp-wrapper #google-signup-wrapper #g-sign-link {
+        body #layout-main #container #signIn-wrapper #google-signIn-wrapper #g-sign-link {
           text-decoration: none;
           font-size: 1.2rem;
           color: #113347; }

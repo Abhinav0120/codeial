@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="<%= assetPath('css/sign_up.css')%>">
 <div id="container">
-    <div id="singUp-wrapper">
+    <div id="signUp-wrapper">
         <div id="heading-wrapper">
             <span id="heading">Create an account</span> 
-            <span id="sub-heading"> Let's get started for free </span> 
+            <span id="sub-heading"> Let's get started for free. </span> 
         </div>
         
         <form id="signUp-form" action="/users/create" method="POST">
@@ -11,13 +11,13 @@
             <input class="form-input" type="email" name="email" placeholder="Email" required>
             <input class="form-input" type="password" name="password" placeholder="Passsword" required>
             <input class="form-input" type="password" name="confirm_password" placeholder="Confirm Passsword" required>
-            <input id="submit-button" type="submit" value="Sing Up">
+            <input id="submit-button" type="submit" value="Sign Up">
     
         </form>
     
-        <p id="google-singup-wrapper">
+        <p id="google-signup-wrapper">
             <img id="google-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/706px-Google_%22G%22_Logo.svg.png" alt="g">
-            <a id="g-sing-link" href="/users/auth/google">  Sing up with Google</a>
+            <a id="g-sign-link" href="/users/auth/google">  Sign up with Google</a>
         </p>
     </div>
 </div>

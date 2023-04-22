@@ -1,13 +1,24 @@
-<h1> sign in</h1>
-
-<form action="/users/create-session" method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="password" required>
-    <input type="submit" value="Sign In">
-
-
-</form>
-
-<p>
-    <a href="/users/auth/google">Google Sing In/ Sing Out</a>
-</p>
+<link rel="stylesheet" href="<%= assetPath('css/sing_in.css')%>">
+<div id="container">
+    <div id="signIn-wrapper">
+        <div id="heading-wrapper">
+            <span id="heading">Welcome back!</span> 
+            <span id="sub-heading"> Please enter your details. </span> 
+        </div>
+        
+        <form id="signIn-form" action="/users/create-session" method="POST">
+            <input class="form-input" type="email" name="email" placeholder="Email" required>
+            <input class="form-input" type="password" name="password" placeholder="password" required>
+            <input id="submit-button" type="submit" value="Sign In">
+        </form>
+        
+        <p id="google-signIn-wrapper">
+            <img id="google-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/706px-Google_%22G%22_Logo.svg.png" alt="g">
+            <a id="g-sign-link" href="/users/auth/google">Sign In using Google</a>
+        </p>
+        <p>
+            <a href="/users/sign-up"> Dont't have an account? sign up for free.</a>
+        </p>
+    </div>
+    
+</div>
