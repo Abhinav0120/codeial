@@ -1,10 +1,10 @@
 header {
   display: flex;
-  height: 10%;
+  height: 10vh;
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #00a2ff; }
+  background-color: #0b3e5c; }
   header #part1 {
     display: flex;
     color: white;
