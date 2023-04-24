@@ -5,8 +5,9 @@
     <ul id="part2">
         <% if (locals.user){%>
             <li>
-                <a href="/users/profile/<%= locals.user.id %>">
-                    <%= user.name %>
+                <a href="/users/profile/<%= locals.user.id %>" id="logged-user">
+                    <img id="user-img" src="<%= locals.user.avatar %>" alt="" width="50">
+                    <span id="user-name"> <%= user.name %> </span>
                 </a>
             </li>
             <li>

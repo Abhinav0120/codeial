@@ -21,7 +21,15 @@ header {
     header #part2 li {
       list-style: none;
       display: flex;
-      align-items: center; }
+      align-items: center;
+      margin-left: 10px; }
+      header #part2 li #logged-user {
+        display: flex;
+        align-items: center; }
+        header #part2 li #logged-user #user-img {
+          border-radius: 50px; }
+        header #part2 li #logged-user #user-name {
+          margin-left: 10px; }
       header #part2 li a {
         text-decoration: none;
         font-size: 20px;
