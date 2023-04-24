@@ -7,6 +7,15 @@
         .comment-top{
             display: flex;
             justify-content: space-between;
+            #comment-user-info{
+                display: flex;
+                align-items: center;
+                #user-image{
+                    width: 20px;
+                    margin-right: 5px;
+                    border-radius: 50px;
+                }
+            }
         }
 
         small{

@@ -6,6 +6,13 @@
   .comment-wrapper div .comment-top {
     display: flex;
     justify-content: space-between; }
+    .comment-wrapper div .comment-top #comment-user-info {
+      display: flex;
+      align-items: center; }
+      .comment-wrapper div .comment-top #comment-user-info #user-image {
+        width: 20px;
+        margin-right: 5px;
+        border-radius: 50px; }
   .comment-wrapper div small .delete-comment-button {
     margin-right: 5px;
     text-decoration: none;

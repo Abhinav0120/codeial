@@ -74,7 +74,8 @@
               width: 90%; }
               #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info #top .user-info #user-image {
                 width: 30px;
-                margin-right: 10px; }
+                margin-right: 10px;
+                border-radius: 50px; }
             #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info #top small {
               margin-right: 5px; }
               #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info #top small .delete-post-button {
