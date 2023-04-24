@@ -2,13 +2,15 @@
 
     <div id="home-container">
         <section id = "feed-posts">
-            <h4>Posts</h4>
             <% if(locals.user){ %>
                 <form action="/posts/create" id="new-post-form" method="POST">
-                    <textarea name="content" cols="30" placeholder="Type Here..." rows="3"></textarea>
-                    <input type="submit" value="Post">
+                    <textarea id="post-textarea" name="content" cols="30" placeholder="Type Here..." rows="1"></textarea>
+                    <input id="submit-button" type="submit" value="Post">
                 </form>
             <%  }   %>
+
+            <h4 id="heading">Posts</h4>
+
             <div id="posts-list-container">
                 <ul>
                     <% for(post of posts){%>
@@ -52,6 +54,25 @@
 
     <script src="<%= assetPath('js/toggle_likes.js') %>"></script>
     <script>
+
+        $(function() {
+            $('#post-textarea').on('input keyup paste', function() {
+                var $el = $(this),
+                    offset = $el.innerHeight() - $el.height();
+
+                if ($el.innerHeight() < this.scrollHeight) {
+                // Grow the field if scroll height is smaller
+                $el.height(this.scrollHeight - offset);
+                } else {
+                // Shrink the field and then re-set it to the scroll height in case it needs to shrink
+                $el.height(1);
+                $el.height(this.scrollHeight - offset);
+                }
+            });
+        });
+
+       
+
         $('.toggle-like-button').each(function(){
             let self = this;
             let toggleLike = new ToggleLike(self);

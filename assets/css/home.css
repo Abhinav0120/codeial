@@ -1,12 +1,122 @@
 #home-container {
   display: flex;
-  height: 100%; }
+  height: 100%;
+  background-color: #e0ddff; }
   #home-container #feed-posts {
-    width: 70%;
-    padding: 10px;
+    width: 65%;
+    padding: 20px 100px 20px 100px;
     overflow: auto; }
+    #home-container #feed-posts #new-post-form {
+      display: flex;
+      justify-content: space-between;
+      min-height: 45px;
+      width: 100%; }
+      #home-container #feed-posts #new-post-form #post-textarea {
+        width: 87%;
+        min-height: 40px !important;
+        max-height: 80px;
+        overflow-y: auto;
+        border-radius: 10px;
+        padding: 5px;
+        background-color: white;
+        font-family: 'Poppins' , sans-serif;
+        border: none; }
+      #home-container #feed-posts #new-post-form #post-textarea:focus-visible {
+        outline: none; }
+      #home-container #feed-posts #new-post-form #post-textarea::placeholder {
+        /* Modern browsers */
+        color: grey; }
+      #home-container #feed-posts #new-post-form #post-textarea:-moz-placeholder {
+        color: white; }
+      #home-container #feed-posts #new-post-form #post-textarea::-moz-placeholder {
+        color: white; }
+      #home-container #feed-posts #new-post-form #post-textarea:-ms-input-placeholder {
+        color: white; }
+      #home-container #feed-posts #new-post-form #post-textarea::-webkit-input-placeholder {
+        color: grey; }
+      #home-container #feed-posts #new-post-form #submit-button {
+        color: white;
+        font-size: 1.3rem;
+        font-family: 'Poppins' , sans-serif;
+        font-weight: 400;
+        width: 10%;
+        height: 50px;
+        background-color: #006c97;
+        border: 1px solid #006c97;
+        border-radius: 30px;
+        padding: 5px; }
+    #home-container #feed-posts #heading {
+      font-size: 1.3rem;
+      width: 100px;
+      background-color: white;
+      padding: 5px 5px 5px 10px;
+      border-radius: 20px 20px 0px 20px; }
+    #home-container #feed-posts #posts-list-container ul {
+      margin: 0;
+      padding: 0; }
+      #home-container #feed-posts #posts-list-container ul .post-list-elem {
+        background-color: white;
+        list-style: none;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 15px; }
+        #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info {
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          margin-bottom: 5px; }
+          #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info #top {
+            display: flex;
+            justify-content: space-between; }
+            #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info #top .user-info {
+              display: flex;
+              align-items: center;
+              width: 90%; }
+              #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info #top .user-info #user-image {
+                width: 30px;
+                margin-right: 10px; }
+            #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info #top small {
+              margin-right: 5px; }
+              #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info #top small .delete-post-button {
+                text-decoration: none;
+                color: red; }
+          #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info .post-content {
+            display: flex;
+            font-size: 1.2rem; }
+            #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info .post-content span {
+              width: 90%;
+              padding: 5px 0px 5px 20px; }
+          #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info .likes {
+            padding-left: 20px; }
+            #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info .likes i {
+              color: #ff00c8; }
+            #home-container #feed-posts #posts-list-container ul .post-list-elem #post-info .likes .toggle-like-button {
+              text-decoration: none;
+              color: grey; }
+        #home-container #feed-posts #posts-list-container ul .post-list-elem .post-comments .new-comment-forms {
+          width: 90%;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px; }
+          #home-container #feed-posts #posts-list-container ul .post-list-elem .post-comments .new-comment-forms input[type="text"] {
+            width: 80%;
+            font-family: 'Poppins' , sans-serif;
+            border-radius: 15px;
+            border: 1px solid grey;
+            padding: 5px;
+            padding-left: 10px;
+            font-weight: 300; }
+          #home-container #feed-posts #posts-list-container ul .post-list-elem .post-comments .new-comment-forms input[type="submit"] {
+            padding: 10px;
+            font-family: 'Poppins' , sans-serif;
+            border-radius: 15px;
+            border: 1px solid #0698ac;
+            background-color: #0698ac;
+            color: white; }
+        #home-container #feed-posts #posts-list-container ul .post-list-elem .post-comments .post-comments-list ul {
+          list-style: none; }
   #home-container #all-users {
-    width: 30%;
+    width: 35%;
     padding: 10px;
     border-left: 1px solid lightgray;
     display: flex;

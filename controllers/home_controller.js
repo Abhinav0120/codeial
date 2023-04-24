@@ -46,6 +46,7 @@ module.exports.home = async function(req, res){
                 });
             }
             
+            // console.log(posts);
             // console.log(friends);
             return res.render('home',{
                 title: "Codeial | Home",

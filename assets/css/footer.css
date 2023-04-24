@@ -2,7 +2,7 @@ footer {
   height: 10vh; }
   footer #footer-inner {
     display: flex;
-    background-color: #466e87;
+    background-color: #3f82ac;
     align-items: center; }
     footer #footer-inner #footer-part1 {
       color: white;

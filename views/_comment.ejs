@@ -1,25 +1,36 @@
-<li id="comment-<%= comment.id %>">
-    <p>
-        <% if(locals.user && locals.user.id == comment.user.id || locals.user && locals.user.id == post.user.id){ %>
-            <small>
-                <a class="delete-comment-button"  href="/comments/destroy/<%= comment.id %>">X</a>
-            </small>
-        <% } %>
-        <%= comment.content %>
-        <br>
-        <small>
-            <%= comment.user.name %>
-        </small>
+<link rel="stylesheet" href="<%= assetPath('css/comment.css')%>">
+<li id="comment-<%= comment.id %>" class="comment-wrapper">
+    <div>
+        <div class="comment-top">
+            <div id="comment-user-info">
+
+                <small>
+                    <%= comment.user.name %>
+                </small>
+            </div>
+            <% if(locals.user && locals.user.id == comment.user.id || locals.user && locals.user.id == post.user.id){ %>
+                <small>
+                    <a class="delete-comment-button"  href="/comments/destroy/<%= comment.id %>">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </a>
+                </small>
+            <% } %>
+        </div>
+        <div class="comment-content">
+            <span>
+                <%= comment.content %>
+            </span>
+        </div>
         <!-- display the likes of this comment, if user is logged in, then show the lik to toggle likes, else, just show the count -->
         <!-- study about the data attribute -->
-        <small>
+        <small class="likes">
             <% if(locals.user){%>
                 <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
-                    <%= comment.likes.length %> Likes
+                    <%= comment.likes.length %> <i class="fa-solid fa-thumbs-up"></i> Likes
                 </a>
             <% } else { %>
-                <%= comment.likes.length %> Likes
+                <%= comment.likes.length %> <i class="fa-solid fa-thumbs-up"></i> Likes
             <%}%>
         </small>
-    </p>
+    </div>
 </li>
