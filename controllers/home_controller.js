@@ -34,7 +34,7 @@ module.exports.home = async function(req, res){
                 path:'friendships',
                 populate:{
                     path: 'to_user from_user',
-                    select: 'name _id'
+                    select: 'name _id avatar'
                 }
             });
             let friends = [];
@@ -47,7 +47,7 @@ module.exports.home = async function(req, res){
             }
             
             // console.log(posts);
-            // console.log(friends);
+            console.log(friends);
             return res.render('home',{
                 title: "Codeial | Home",
                 posts: posts,

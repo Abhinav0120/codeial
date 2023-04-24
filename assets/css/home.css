@@ -45,11 +45,12 @@
         border: 1px solid #006c97;
         border-radius: 30px;
         padding: 5px; }
-    #home-container #feed-posts #heading {
+    #home-container #feed-posts .heading {
+      display: inline-block;
       font-size: 1.3rem;
-      width: 100px;
+      min-width: 60px;
       background-color: white;
-      padding: 5px 5px 5px 10px;
+      padding: 5px 15px 5px 15px;
       border-radius: 20px 20px 0px 20px; }
     #home-container #feed-posts #posts-list-container ul {
       margin: 0;
@@ -123,3 +124,28 @@
     display: flex;
     flex-direction: column;
     overflow: auto; }
+    #home-container #all-users .heading {
+      display: inline-block;
+      font-size: 1.3rem;
+      min-width: 60px;
+      background-color: white;
+      padding: 5px 15px 5px 15px;
+      border-radius: 20px 20px 0px 20px; }
+    #home-container #all-users #user-friends .friend-info {
+      display: flex;
+      align-items: center; }
+      #home-container #all-users #user-friends .friend-info #friend-img {
+        border-radius: 50px;
+        margin-right: 10px; }
+      #home-container #all-users #user-friends .friend-info #friend-name {
+        text-decoration: none;
+        color: black; }
+    #home-container #all-users #re-users .user-info {
+      display: flex;
+      align-items: center; }
+      #home-container #all-users #re-users .user-info #user-img {
+        border-radius: 50px;
+        margin-right: 10px; }
+      #home-container #all-users #re-users .user-info #user-name {
+        text-decoration: none;
+        color: black; }
