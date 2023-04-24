@@ -27,10 +27,12 @@
                 <div id="user-friends">
                     <h4 class="heading">Friends</h4>
                     <% for(f of all_friends){ %>
-                        <p class="friend-info">
-                            <img id="friend-img" src="<%= f.avatar %>" alt="" width="50">
-                            <a id="friend-name" href="/users/profile/<%= f._id %>"> <%= f.name %></a>
-                        </p> 
+                            <a class="friend-link" href="/users/profile/<%= f._id %>"> 
+                                <img id="friend-img" src="<%= f.avatar %>" alt="" width="50">
+                                <span id="friend-name">
+                                    <%= f.name %>
+                                </span> 
+                            </a>
                     <% } %>
     
                 </div>
@@ -39,10 +41,10 @@
             <div id="re-users">
                 <h4 class="heading">Users</h4>
                 <% for(u of all_users){ %>
-                    <p class="user-info">
+                    <a class="user-link" href="/users/profile/<%= u.id %>">
                         <img id="user-img" src="<%= u.avatar%>" alt="" width="50">
-                        <a id="user-name" href="/users/profile/<%= u.id %>"> <%= u.name %></a>
-                    </p> 
+                        <span id="user-name"> <%= u.name %> </span> 
+                    </a> 
                 <% } %>
             </div>
         </section>

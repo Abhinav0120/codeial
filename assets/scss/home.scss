@@ -180,12 +180,15 @@
     }
 
     #all-users{
+
         width: 35%;
-        padding: 10px;
         border-left: 1px solid lightgray;
         display: flex;
         flex-direction: column;
         overflow: auto;
+        padding: 20px 50px 20px 50px; 
+        background-color: #eee9d2;
+
 
         .heading{
             display: inline-block;
@@ -198,25 +201,36 @@
         }
 
         #user-friends{
-            .friend-info{
+            .friend-link{
                 display: flex;
                 align-items: center;
+                background-color: white;
+                min-height: 50px;
+                border-radius: 50px;
+                margin: 0;
+                margin-bottom: 10px;
                 #friend-img{
                     border-radius: 50px;
                     margin-right: 10px;
                 }
 
                 #friend-name{
-                    text-decoration: none;
                     color: black;
                 }
             }
+            
+        
         }
 
         #re-users{
-            .user-info{
+            .user-link{
                 display: flex;
                 align-items: center;
+                background-color: white;
+                min-height: 50px;
+                border-radius: 50px;
+                margin: 0;
+                margin-bottom: 10px;
                 #user-img{
                     border-radius: 50px;
                     margin-right: 10px;
